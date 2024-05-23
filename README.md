@@ -42,10 +42,14 @@ Time permitting, we will try and predict 2024 outcomes using our model with 2020
         latino_pc: Percentage of latino population
         white_pc: Percentage of white population
         *_delta: Change in percentage of * population from 2016 to 2019
+        pov_pc: Percentage of people below the poverty limit
+        pov_pc_delta: Change in pov_pc
         unemp_rate: Unemployment rate as a percentage of population
         unemp_delta: Change in unemployment rate from 2016 to 2019
         mean_hhi: Mean household income
         med_hhi: Median household income
+        urban: Percentage of people in urban area
+        rural: Percentage of people in rural area
         hs_deg: Percentage of the adult population with a high school or equivalent degree
         bac_deg: Percentage of the adult population with a bachelors degree
         democrat: Percentage of votes going to the democratic candidate
