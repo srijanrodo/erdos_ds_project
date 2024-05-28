@@ -20,7 +20,7 @@ The following are some of the key datasets used in our project (taken from the U
     
 We use the data from the American Community Survey 5-Year Data. These cover all the US counties. There is also a ACS 1-Year database covering fewer counties (>= 65000 people) but with more recent data.
 There is an aggregate file (aggregate.csv) that has a few of the features we found interesting based on initial data exploration.
-<detail>
+<details>
     <summary>Click here to see the features in aggregate.csv</summary>
     -GEO_ID: Unique identifier attached to each county
     -NAME: Name of the county
@@ -46,7 +46,7 @@ There is an aggregate file (aggregate.csv) that has a few of the features we fou
     -bac_deg: Percentage of the adult population with a bachelors degree
     -democrat: Percentage of votes going to the democratic candidate
     -republican: Percentage of votes going to the republican candidate
-</detail> 
+</details> 
 
 
 The Goal: To determine voter breakdown of each county by percentage, thereby determining the popular vote and electoral college outcomes of the 2020 presidential election. 
