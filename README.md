@@ -4,12 +4,12 @@
 
 Group Members: Srijan Ghosh, Li Meng, Giovanni Passeri, Alicia Xiao
 
-# Overview
+## Overview
 We take a look at how various socioeconomic factors affect voting patterns across the US by considering a county level breakdown of the 2020 US presidential election.
 
 
 
-# Dataset
+## Dataset
 The following are some of the key datasets used in our project (taken from the US census database):
     Demographics {population, race and ethnicity, sex and gender, age groups}
     Poverty
@@ -23,84 +23,78 @@ There is an aggregate file (aggregate.csv) that has a few of the features we fou
 <details>
     <summary>Click here to see the features in aggregate.csv</summary>
     
-                * GEO_ID: Unique identifier attached to each county
-                * NAME: Name of the county
-                * total_pop: Total population of the county
-                * pop_18_30_pc: Percentage of people in the age range 18 to 30
-                * pop_60_up_pc: Percentage of people in the age range 60 and up
-                * pop_male_pc: Percentage of male population
-                * afr_amer_pc: Percentage of african american population
-                * amer_ind_pc: Percentage of american indian population
-                * asian_pc: Percentage of asian population
-                * latino_pc: Percentage of latino population
-                * white_pc: Percentage of white population
-                * _delta: Change in percentage of * population from 2016 to 2019
-                * pov_pc: Percentage of people below the poverty limit
-                * pov_pc_delta: Change in pov_pc
-                * unemp_rate: Unemployment rate as a percentage of population
-                * unemp_delta: Change in unemployment rate from 2016 to 2019
-                * mean_hhi: Mean household income
-                * med_hhi: Median household income
-                * urban: Percentage of people in urban area
-                * rural: Percentage of people in rural area
-                * hs_deg: Percentage of the adult population with a high school or equivalent degree
-                * bac_deg: Percentage of the adult population with a bachelors degree
-                * democrat: Percentage of votes going to the democratic candidate
-                * republican: Percentage of votes going to the republican candidate
-</details> 
+        * GEO_ID: Unique identifier attached to each county
+        * NAME: Name of the county
+        * total_pop: Total population of the county
+        * pop_18_30_pc: Percentage of people in the age range 18 to 30
+        * pop_60_up_pc: Percentage of people in the age range 60 and up
+        * pop_male_pc: Percentage of male population
+        * afr_amer_pc: Percentage of african american population
+        * amer_ind_pc: Percentage of american indian population
+        * asian_pc: Percentage of asian population
+        * latino_pc: Percentage of latino population
+        * white_pc: Percentage of white population
+        * _delta: Change in percentage of * population from 2016 to 2019
+        * pov_pc: Percentage of people below the poverty limit
+        * pov_pc_delta: Change in pov_pc
+        * unemp_rate: Unemployment rate as a percentage of population
+        * unemp_delta: Change in unemployment rate from 2016 to 2019
+        * mean_hhi: Mean household income
+        * med_hhi: Median household income
+        * urban: Percentage of people in urban area
+        * rural: Percentage of people in rural area
+        * hs_deg: Percentage of the adult population with a high school or equivalent degree
+        * bac_deg: Percentage of the adult population with a bachelors degree
+        * democrat: Percentage of votes going to the democratic candidate
+        * republican: Percentage of votes going to the republican candidate
+</details>
 
+For election results we use county level election data from MIT Election Lab (https://electionlab.mit.edu/data)
 
-The Goal: To determine voter breakdown of each county by percentage, thereby determining the popular vote and electoral college outcomes of the 2020 presidential election. 
-Reach Goal: Using data from (2020-2024) to predict the popular vote and electoral college outcomes of the 2024 presidential election.
+## Objective
+We model the outcome of the election as well as the percentage of votes gained by the democratic candidate (this is roughly equal to 100 - the percentage of votes gained by the republican candidate).
 
-Stakeholders: 
-Political Campaign Teams: Interested in understanding potential voting outcomes to strategize campaign efforts
-Government Officials: Could be interested in insights for policymaking or understanding public sentiment.
+## Data Exploration
+After sanitising the data, we found interesting correlations between the following variables and the votes gained by the democratic candidate:
 
-KPIs: 
-Accuracy of Predictions: Measure of how accurately our model predicts voting outcomes compared to actual results.
-Model Performance Metrics: Evaluation metrics to assess model performance.
-Feature Importance: Understanding the impact of different features (e.g., poverty rates, education levels) on the predictions.
+   - log_pop: Logarithm (base 10) of the total population.
+   - white_pc: People living in the county belonging to ethnicity white (this is highly correlated to people of other ethnicities, hence we only consider white_pc as a feature).
+   - urban: People living in urban areas (equal to 100 - people living in rural areas)
+   - log_urban_pop: Logarithm of the total urban population
+   - unemp_rate: Unemployment rate in the county
+   - bac_deg: Percentage of adults holding a bachelor degree or higher
+   - hs_deg: Percentage of adults holding with a high school degree as highest educational attainment
+   - pop_18_30_pc: Percentage of young people (18 to 30 years of age)
+   - pop_60_up_pc: Percentage of older people (60 years or older)
+   - pov_pc: Percentage of people living under the poverty limit
+   - unemp_bac: Product of unemp_rate and bac_deg
 
-The Plan:
-We plan to use county level data to determine voting outcomes of 2020, by considering Twitter posts of 2020, and relevant factors such as poverty rate, education level, employment rate, etc, ideally from 2016 to 2020. 
+Here are some related plots:
 
-We will attempt to determine the voting breakdown of each county, thereby determining the popular vote and electoral college outcome of 2020.
+![pairplot](./assets/pairplot1.png)
+![scatterplot1](./assets/scatterplot1.png)
+![scatterplot2](./assets/scatterplot2.png)
 
-Time permitting, we will try and predict 2024 outcomes using our model with 2020-2024 data.
+## Modeling
+We use the above mentioned variables as our features and consider both regression and classification problems.
 
+### Regression (predicting the percentage of votes):
 
-    Explanation of Features in aggregate.csv:
-        GEO_ID: Unique identifier attached to each county
-        NAME: Name of the county
-        total_pop: Total population of the county
-        pop_18_30_pc: Percentage of people in the age range 18 to 30
-        pop_60_up_pc: Percentage of people in the age range 60 and up
-        pop_male_pc: Percentage of male population
-        afr_amer_pc: Percentage of african american population
-        amer_ind_pc: Percentage of american indian population
-        asian_pc: Percentage of asian population
-        latino_pc: Percentage of latino population
-        white_pc: Percentage of white population
-        *_delta: Change in percentage of * population from 2016 to 2019
-        pov_pc: Percentage of people below the poverty limit
-        pov_pc_delta: Change in pov_pc
-        unemp_rate: Unemployment rate as a percentage of population
-        unemp_delta: Change in unemployment rate from 2016 to 2019
-        mean_hhi: Mean household income
-        med_hhi: Median household income
-        urban: Percentage of people in urban area
-        rural: Percentage of people in rural area
-        hs_deg: Percentage of the adult population with a high school or equivalent degree
-        bac_deg: Percentage of the adult population with a bachelors degree
-        democrat: Percentage of votes going to the democratic candidate
-        republican: Percentage of votes going to the republican candidate
+A 5-fold cross-validation is used for all the models below:
 
-    Other possible features:
-        Population in ages grouped in periods of 5 year (e.g. 10-15 years, 15-20 years etc)
-        Poverty rate in age groups
-        Population under 1.5 times the poverty limit
-        Employment status for various age groups
-        Employment status with respect to military jobs
-        Male population in different age groups
-        Number of people with mixed ethnicities
+    - Baseline: Simply predict the average voter percentage for every sample.
+    - Linear Regression: We iterate over the powerset of the features to find the best subset for linear regression.
+    - Random Forest Regressor: With 500 trees and bootstrapping.
+    - XGBoost: We use GridSearchCV to do hyperparameter tuning for n_estimators, max_depth and learning_rate.
+    - Neural Network: We use a feed forward neural network with two hidden layers of size 15 each.
+
+The following table has our accuracy results on the validation data:
+
+| Model         | RMSE          | R^2  |
+| ------------- |:-------------:| -----:|
+| Baseline      | 15.96         |      0|
+| LinearReg     | 9.19          |   0.50|
+| RandomForest  | 9.15          |   0.33|
+| XGBoost       | 8.21          |   0.63|
+| NeuralNetwork | 8.27          |   0.63|
+
