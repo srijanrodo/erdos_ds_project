@@ -1,6 +1,6 @@
 # How People Vote
 ## A look into how socioeconomic factors affect voting patterns
-### (project for Datascience Bootcamp, Erdos Institute, Summer 2024)
+### Project for Datascience Bootcamp, Erdos Institute, Summer 2024
 
 Group Members: Srijan Ghosh, Li Meng, Giovanni Passeri, Alicia Xiao
 
