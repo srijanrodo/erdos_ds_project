@@ -144,6 +144,6 @@ Based on this, we chose SVC as our classifier of choice. After final training an
 
 ## Conclusion and Future Directions
 
-We can see from the results that the classification results are stronger than the regression results. This suggests that while the predictors we considered are suitable for general voting patterns in a county, predicting the exact percentages requires more variables. This is expected as, for example, the predictors don't change too much over time (similar to how most counties vote the same way over time) but the exact percentage of votes do change from election to election.
+It's clear from above that the classification results are stronger than the regression results. This suggests that while the predictors we considered are suitable for general voting patterns in a county, predicting the exact percentages requires more variables. This is expected as, for example, the predictors don't change too much over time (similar to how most counties vote the same way over time) but the exact percentage of votes do change from election to election.
 
 A possible extension suggested by the above is to do sentiment analysis on local news (headlines, engagement on local news websites for example) and see how the voting predictions improve with those indicators factored in. Analysis of political campaigns and how that affects votes is also an interesting question in the same direction.
