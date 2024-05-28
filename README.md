@@ -22,6 +22,7 @@ We use the data from the American Community Survey 5-Year Data. These cover all 
 There is an aggregate file (aggregate.csv) that has a few of the features we found interesting based on initial data exploration.
 <details>
     <summary>Click here to see the features in aggregate.csv</summary>
+    
                 * GEO_ID: Unique identifier attached to each county
                 * NAME: Name of the county
                 * total_pop: Total population of the county
