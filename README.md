@@ -7,8 +7,15 @@ Group Members: Srijan Ghosh, Li Meng, Giovanni Passeri, Alicia Xiao
 ## Overview
 We take a look at how various socioeconomic factors affect voting patterns across the US by considering a county level breakdown of the 2020 US presidential election.
 
+## Libraries
+The following python libraries are need to run the programs in this project:
 
-
+    - numpy
+    - pandas
+    - sklearn
+    - keras
+    - tensorflow
+ 
 ## Dataset
 The following are some of the key datasets used in our project (taken from the US census database):
     Demographics {population, race and ethnicity, sex and gender, age groups}
@@ -83,14 +90,14 @@ We use the above mentioned variables as our features and consider both regressio
 A 5-fold cross-validation is used for all the models below:
 
     - Baseline: Simply predict the average voter percentage for every sample.
-    - Linear Regression: We iterate over the powerset of the features to find the best subset for linear regression.
-    - Random Forest Regressor: With 500 trees and bootstrapping.
-    - XGBoost: We use GridSearchCV to do hyperparameter tuning for n_estimators, max_depth and learning_rate.
-    - Neural Network: We use a feed forward neural network with two hidden layers of size 15 each.
+    - Linear Regression: We iterate over the powerset of the features to find the best subset for linear regression. (code in ./lin_regression.ipynb)
+    - Random Forest Regressor: With 500 trees and bootstrapping. (code in ./random_forests.ipynb)
+    - XGBoost: We use GridSearchCV to do hyperparameter tuning for n_estimators, max_depth and learning_rate. (code in ./xgboost.ipynb)
+    - Neural Network: We use a feed forward neural network with two hidden layers of size 15 each. (code in ./neural_network.ipynb)
 
 The following table has our accuracy results on the validation data:
 
-| Model         | RMSE          | R^2  |
+| Model         | RMSE          |  R^2  |
 | ------------- |:-------------:| -----:|
 | Baseline      | 15.96         |      0|
 | LinearReg     | 9.19          |   0.50|
@@ -98,3 +105,34 @@ The following table has our accuracy results on the validation data:
 | XGBoost       | 8.21          |   0.63|
 | NeuralNetwork | 8.27          |   0.63|
 
+
+Based on the above we chose XGBoost as our desired model. Final training and testing on the initially split dataset yield the following:
+
+| Model         | RMSE         | R^2  |
+| ------------- :-------------:|-----:|
+| XGBoost       | 8.35         |  0.63|
+
+
+### Classification (predicting the winner in the county):
+
+A 5-fold cross-validation is used for all the models below (code in ./classifiers.ipynb):
+
+    - Baseline: Predicting the winner as a binomial distribution with probability = (sample counties where democrat vote is higher)/(total number of sample counties)
+    - Logistic Regression: Predicting the winner with threshold set at 0.4, 0.5 and 0.6. The accuracy is highest with 0.5
+    - Random Forest Classifier: Use GridSearchCV to find optimal hyperparameters for n_estimators and max_depth
+    - SVC: Use GridSearchCV to find optimal hyperparameters for C and kernel
+
+We get the following results on validation data:
+
+| Model         | Accuracy Score|
+| ------------- |:-------------:|
+| Baseline      | 0.7127        |
+| LogisticReg   | 0.9061        |   
+| RandomForest  | 0.9226        |
+| SVC           | 0.9266        |
+
+Based on this, we chose SVC as our classifier of choice. After final training and testing, we get the following:
+
+| Model         | Accuracy Score|
+| ------------- |:-------------:|
+| SVC           | 0.9197        |
