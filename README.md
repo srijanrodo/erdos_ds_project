@@ -79,9 +79,11 @@ After sanitising the data, we found interesting correlations between the followi
 Here are some related plots:
 
 ![pairplot](./assets/pairplot1.png)
+<div text-align='center'>
 <img src="./assets/scatterplot2.png" alt="scatterplot2" style="width:250px">
 <img src="./assets/scatterplot1.png" alt="scatterplot1" style="width:250px">
-
+<img src="./assets/scatterplot3.png" alt="scatterplot3" style="width:250px">
+</div>
 
 ## Modeling
 We use the above mentioned variables as our features and consider both regression and classification problems.
@@ -113,6 +115,7 @@ Based on the above we chose XGBoost as our desired model. Final training and tes
 | ------------- |:------------:|-----:|
 | XGBoost       | 8.35         |  0.63|
 
+<img src="./assets/xgboost.png" alt="xgboost_result" style="width:300px">
 
 ### Classification (predicting the winner in the county):
 
