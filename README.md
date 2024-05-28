@@ -79,8 +79,8 @@ After sanitising the data, we found interesting correlations between the followi
 Here are some related plots:
 
 ![pairplot](./assets/pairplot1.png)
-![scatterplot1](./assets/scatterplot1.png)
-<img src="./assets/scatterplot2.png" alt="scatterplot2" style="width:100px">
+<img src="./assets/scatterplot2.png" alt="scatterplot2" style="width:250px">
+<img src="./assets/scatterplot1.png" alt="scatterplot1" style="width:250px">
 
 
 ## Modeling
