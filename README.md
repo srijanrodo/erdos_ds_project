@@ -30,30 +30,30 @@ There is an aggregate file (aggregate.csv) that has a few of the features we fou
 <details>
     <summary>Click here to see the features in aggregate.csv</summary>
     
-        * GEO_ID: Unique identifier attached to each county
-        * NAME: Name of the county
-        * total_pop: Total population of the county
-        * pop_18_30_pc: Percentage of people in the age range 18 to 30
-        * pop_60_up_pc: Percentage of people in the age range 60 and up
-        * pop_male_pc: Percentage of male population
-        * afr_amer_pc: Percentage of african american population
-        * amer_ind_pc: Percentage of american indian population
-        * asian_pc: Percentage of asian population
-        * latino_pc: Percentage of latino population
-        * white_pc: Percentage of white population
-        * _delta: Change in percentage of * population from 2016 to 2019
-        * pov_pc: Percentage of people below the poverty limit
-        * pov_pc_delta: Change in pov_pc
-        * unemp_rate: Unemployment rate as a percentage of population
-        * unemp_delta: Change in unemployment rate from 2016 to 2019
-        * mean_hhi: Mean household income
-        * med_hhi: Median household income
-        * urban: Percentage of people in urban area
-        * rural: Percentage of people in rural area
-        * hs_deg: Percentage of the adult population with a high school or equivalent degree
-        * bac_deg: Percentage of the adult population with a bachelors degree
-        * democrat: Percentage of votes going to the democratic candidate
-        * republican: Percentage of votes going to the republican candidate
+* GEO_ID: Unique identifier attached to each county
+* NAME: Name of the county
+* total_pop: Total population of the county
+* pop_18_30_pc: Percentage of people in the age range 18 to 30
+* pop_60_up_pc: Percentage of people in the age range 60 and up
+* pop_male_pc: Percentage of male population
+* afr_amer_pc: Percentage of african american population
+* amer_ind_pc: Percentage of american indian population
+* asian_pc: Percentage of asian population
+* latino_pc: Percentage of latino population
+* white_pc: Percentage of white population
+* _delta: Change in percentage of * population from 2016 to 2019
+* pov_pc: Percentage of people below the poverty limit
+* pov_pc_delta: Change in pov_pc
+* unemp_rate: Unemployment rate as a percentage of population
+* unemp_delta: Change in unemployment rate from 2016 to 2019
+* mean_hhi: Mean household income
+* med_hhi: Median household income
+* urban: Percentage of people in urban area
+* rural: Percentage of people in rural area
+* hs_deg: Percentage of the adult population with a high school or equivalent degree
+* bac_deg: Percentage of the adult population with a bachelors degree
+* democrat: Percentage of votes going to the democratic candidate
+* republican: Percentage of votes going to the republican candidate
 </details>
 
 For election results we use county level election data from MIT Election Lab (https://electionlab.mit.edu/data)
@@ -92,11 +92,11 @@ We use the above mentioned variables as our features and consider both regressio
 
 A 5-fold cross-validation is used for all the models below:
 
-    - Baseline: Simply predict the average voter percentage for every sample.
-    - Linear Regression: We iterate over the powerset of the features to find the best subset for linear regression. (code in ./lin_regression.ipynb)
-    - Random Forest Regressor: With 500 trees and bootstrapping. (code in ./random_forests.ipynb)
-    - XGBoost: We use GridSearchCV to do hyperparameter tuning for n_estimators, max_depth and learning_rate. (code in ./xgboost.ipynb)
-    - Neural Network: We use a feed forward neural network with two hidden layers of size 15 each. (code in ./neural_network.ipynb)
+   - Baseline: Simply predict the average voter percentage for every sample.
+   - Linear Regression: We iterate over the powerset of the features to find the best subset for linear regression. (code in ./lin_regression.ipynb)
+   - Random Forest Regressor: With 500 trees and bootstrapping. (code in ./random_forests.ipynb)
+   - XGBoost: We use GridSearchCV to do hyperparameter tuning for n_estimators, max_depth and learning_rate. (code in ./xgboost.ipynb)
+   - Neural Network: We use a feed forward neural network with two hidden layers of size 15 each. (code in ./neural_network.ipynb)
 
 The following table has our accuracy results on the validation data:
 
@@ -121,10 +121,10 @@ Based on the above we chose XGBoost as our desired model. Final training and tes
 
 A 5-fold cross-validation is used for all the models below (code in ./classifiers.ipynb):
 
-    - Baseline: Predicting the winner as a binomial distribution with probability = (sample counties where democrat vote is higher)/(total number of sample counties)
-    - Logistic Regression: Predicting the winner with threshold set at 0.4, 0.5 and 0.6. The accuracy is highest with 0.5
-    - Random Forest Classifier: Use GridSearchCV to find optimal hyperparameters for n_estimators and max_depth
-    - SVC: Use GridSearchCV to find optimal hyperparameters for C and kernel
+- Baseline: Predicting the winner as a binomial distribution with probability = (sample counties where democrat vote is higher)/(total number of sample counties)
+- Logistic Regression: Predicting the winner with threshold set at 0.4, 0.5 and 0.6. The accuracy is highest with 0.5
+- Random Forest Classifier: Use GridSearchCV to find optimal hyperparameters for n_estimators and max_depth
+- SVC: Use GridSearchCV to find optimal hyperparameters for C and kernel
 
 We get the following results on validation data:
 
