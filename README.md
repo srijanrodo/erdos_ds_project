@@ -8,7 +8,7 @@ Group Members: Srijan Ghosh, Li Meng, Giovanni Passeri, Alicia Xiao
 We take a look at how various socioeconomic factors affect voting patterns across the US by considering a county level breakdown of the 2020 US presidential election.
 
 ## Libraries
-The following python libraries are need to run the programs in this project:
+The following python libraries are needed to run the programs in this project:
 
     - numpy
     - pandas
@@ -80,7 +80,8 @@ Here are some related plots:
 
 ![pairplot](./assets/pairplot1.png)
 ![scatterplot1](./assets/scatterplot1.png)
-![scatterplot2](./assets/scatterplot2.png)
+<img src="./assets/scatterplot2.png" alt="scatterplot2" style="width:100px">
+
 
 ## Modeling
 We use the above mentioned variables as our features and consider both regression and classification problems.
@@ -109,7 +110,7 @@ The following table has our accuracy results on the validation data:
 Based on the above we chose XGBoost as our desired model. Final training and testing on the initially split dataset yield the following:
 
 | Model         | RMSE         | R^2  |
-| ------------- :-------------:|-----:|
+| ------------- |:------------:|-----:|
 | XGBoost       | 8.35         |  0.63|
 
 
