@@ -79,7 +79,7 @@ After sanitising the data, we found interesting correlations between the followi
 Here are some related plots:
 
 ![pairplot](./assets/pairplot1.png)
-<div text-align='center'>
+<div align-content='space-evenly'>
 <img src="./assets/scatterplot2.png" alt="scatterplot2" style="width:250px">
 <img src="./assets/scatterplot1.png" alt="scatterplot1" style="width:250px">
 <img src="./assets/scatterplot3.png" alt="scatterplot3" style="width:250px">
