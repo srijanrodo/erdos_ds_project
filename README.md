@@ -7,7 +7,7 @@ Group Members: Srijan Ghosh, Li Meng, Giovanni Passeri, Alicia Xiao
 ## Overview
 We take a look at how various relatively static socioeconomic factors affect voting patterns across the US by considering a county level breakdown of the 2020 US presidential election.
 
-## Libraries
+## Dependencies
 The following python libraries are needed to run the programs in this project:
 
     - numpy
@@ -16,6 +16,8 @@ The following python libraries are needed to run the programs in this project:
     - keras
     - tensorflow
  
+ Jupyter-notebook (or something compatible) is also necessary to run the notebooks.
+
 ## Dataset
 The following are some of the key datasets used in our project (taken from the US census database):
     Demographics {population, race and ethnicity, sex and gender, age groups}
