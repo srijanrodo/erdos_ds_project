@@ -90,7 +90,7 @@ Here are some related plots:
 ## Modeling
 We use the above mentioned variables as our features and consider both regression and classification problems.
 
-### Regression (predicting the percentage of votes):
+## Regression (predicting the percentage of votes):
 
 A 5-fold cross-validation is used for all the models below:
 
@@ -119,7 +119,13 @@ Based on the above we chose XGBoost as our desired model. Final training and tes
 
 <img src="./assets/xgboost.png" alt="xgboost_result" style="width:300px">
 
-### Classification (predicting the winner in the county):
+### Feature Importance from XGBoost:
+The following chart shows the importance of the different features from the XGBoost model.
+
+<img src="./assets/feature_importance.png" alt="xgboost_result" style="width:400px">
+
+
+## Classification (predicting the winner in the county):
 
 A 5-fold cross-validation is used for all the models below (code in ./classifiers.ipynb):
 
