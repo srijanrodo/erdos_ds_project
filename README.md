@@ -1,8 +1,8 @@
-# How People Vote
+# Voting:Demographics & Outcomes
 ## A look into how socioeconomic factors affect voting patterns
 ### Project for Datascience Bootcamp, Erdos Institute, Summer 2024
 
-Group Members: Srijan Ghosh, Li Meng, Giovanni Passeri, Alicia Xiao
+Group Members: Srijan Ghosh, Li Meng, Giovanni Passeri, Yu (Alicia) Xiao
 
 ## Overview
 We take a look at how various relatively static socioeconomic factors affect voting patterns across the US by considering a county level breakdown of the 2020 US presidential election.
