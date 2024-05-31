@@ -1,4 +1,4 @@
-# Voting:Demographics & Outcomes
+# Voting: Demographics & Outcomes
 ## A look into how socioeconomic factors affect voting patterns
 ### Project for Datascience Bootcamp, Erdos Institute, Summer 2024
 
